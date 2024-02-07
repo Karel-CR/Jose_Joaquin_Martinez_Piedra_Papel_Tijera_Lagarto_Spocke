@@ -15,7 +15,7 @@ window.onload = function() {
 
   let playerChoose;
   // Loop to keep asking while user dont pick a valid option
-  while (optionsToPick.includes(playerChoose)) {
+  while (!optionsToPick.includes(playerChoose)) {
     playerChoose = prompt(
       "Choose your fighter: Rock, Paper, Scissors, Lizard, Spock"
     ).toLowerCase();
@@ -28,8 +28,9 @@ window.onload = function() {
   // Comparing a tie scenario
   if (playerChoose === computerChoice) {
     alert("It's a tie!");
-  } else if (
-    // looking for the win conditions of each choice
+  }
+  // looking for the win conditions of each choice
+  else if (
     (playerChoose === "rock" &&
       (computerChoice === "scissors" || computerChoice === "lizard")) ||
     (playerChoose === "paper" &&

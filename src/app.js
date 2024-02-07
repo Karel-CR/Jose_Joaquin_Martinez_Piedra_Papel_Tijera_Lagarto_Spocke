@@ -21,29 +21,40 @@ window.onload = function() {
     ).toLowerCase();
   }
 
-  let computerChoice =
-    optionsToPick[Math.floor(Math.random() * optionsToPick.length)];
+  let computerChoice = optionsToPick[Math.floor(Math.random() * optionsToPick.length)];
 
   alert(`Rigo chooses ${computerChoice}`);
   // Comparing a tie scenario
-  if (playerChoose === computerChoice) {
-    alert("It's a tie!");
-  }
-  // looking for the win conditions of each choice
-  else if (
-    (playerChoose === "rock" &&
-      (computerChoice === "scissors" || computerChoice === "lizard")) ||
-    (playerChoose === "paper" &&
-      (computerChoice === "rock" || computerChoice === "spock")) ||
-    (playerChoose === "scissors" &&
-      (computerChoice === "paper" || computerChoice === "lizard")) ||
-    (playerChoose === "lizard" &&
-      (computerChoice === "spock" || computerChoice === "paper")) ||
-    (playerChoose === "spock" &&
-      (computerChoice === "rock" || computerChoice === "scissors"))
-  ) {
-    alert("You won!");
-  } else {
-    alert("Ha! NOOB!");
-  }
+  (playerChoose === computerChoice) ? alert("It's a tie") : isNotAtie(playerChoose, computerChoice);
+  //Otra solución
+  const isNotAtie = (playerChoose, computerChoice) => {
+    if (
+      playerChoose === "rock" &&
+      (computerChoice === "scissors" || computerChoice === "lizard")
+    ) {
+      alert("You won!");
+    } else if (
+      playerChoose === "paper" &&
+      (computerChoice === "rock" || computerChoice === "spock")
+    ) {
+      alert("You won!");
+    } else if (
+      playerChoose === "scissors" &&
+      (computerChoice === "paper" || computerChoice === "lizard")
+    ) {
+      alert("You won!");
+    } else if (
+      playerChoose === "lizard" &&
+      (computerChoice === "spock" || computerChoice === "paper")
+    ) {
+      alert("You won!");
+    } else if (
+      playerChoose === "spock" &&
+      (computerChoice === "rock" || computerChoice === "scissors")
+    ) {
+      alert("You won!");
+    } else {
+      alert("Ha! NOOB!");
+    }
+  };
 };
